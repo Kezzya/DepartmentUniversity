@@ -1,0 +1,17 @@
+.headerText {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  gap: 30px;
+  & p:hover {
+    color: #ffd959;
+    cursor: pointer;
+  }
+}
+.hamburgerInner:hover {
+  span,
+  span::before,
+  span::after {
+    background-color: #ffd959;
+  }
+}

@@ -3,9 +3,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Loader } from "../components/loader";
 import { MainHeader } from "../components/mainHeader";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export default function Home(): JSX.Element {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   return (
     <div className="container">
@@ -14,7 +16,27 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainHeader />
-      <Loader />
+      <Slider {...settings}>
+        <div>
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
+      </Slider>
+      );
       <h1>
         <Link href="/posts/first-post">
           <a>this page!</a>
@@ -23,3 +45,10 @@ export default function Home(): JSX.Element {
     </div>
   );
 }
+let settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
