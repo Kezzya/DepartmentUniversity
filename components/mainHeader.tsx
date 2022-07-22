@@ -8,7 +8,13 @@ export const MainHeader = (): JSX.Element => {
     setIsActive(!isActive);
   };
   return (
-    <div style={{ display: `flex`, flexDirection: `row` }}>
+    <div
+      style={{
+        display: `flex`,
+        flexDirection: `row`,
+        backgroundImage: `url(images/bgHeader.svg)`,
+      }}
+    >
       <Image src="/images/logo.svg" alt="logo" width="150px" height="100px" />
       <div className={styles.headerText}>
         <p>Бакалавриат</p>

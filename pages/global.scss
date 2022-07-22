@@ -6,7 +6,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-  background-color: #1f5ca5;
   color: white;
 }
 
@@ -26,4 +25,11 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+.swiper-slide {
+  background-image: url(/images/bgMain.svg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
