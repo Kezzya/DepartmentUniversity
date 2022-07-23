@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { Loader } from "../components/loader";
 import { MainHeader } from "../components/mainHeader";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import Image from "next/image";
+import { AppearanceWords } from "../components/appearanceWords";
 
 const serverUrl: string = "http://localhost:1337";
 interface ISlider {
@@ -22,6 +23,7 @@ interface IImages {
 interface IData {
   data: object[];
 }
+
 export default function Home(): JSX.Element {
   // const [loading, setLoading] = useState(true);
   const [imgs, setImgs] = useState([]);
@@ -30,6 +32,7 @@ export default function Home(): JSX.Element {
       const sliderResp: Response = await fetch(
         `${serverUrl}/api/sliders?populate=images`
       );
+
       const jsonSlider = await sliderResp.json();
       const [images] = jsonSlider.data.map(
         (el: IAttribute) => el.attributes.images.data
@@ -51,27 +54,31 @@ export default function Home(): JSX.Element {
 
       <MainHeader />
       <div>
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-          {imgs.map((el, i) => {
-            return (
-              <SwiperSlide key={i}>
-                <Image
-                  key={i}
-                  src={serverUrl + el.attributes.url}
-                  width={`1050px`}
-                  height={`650px`}
-                />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        <Suspense fallback={<Loader />}>
+          <Swiper navigation={true} modules={[Navigation]}>
+            {imgs.map((el, i) => {
+              return (
+                <SwiperSlide key={i}>
+                  <AppearanceWords text="Кафедра Вычислительной Техники" />
+                  <div style={{ margin: `auto`, width: `50vw` }}>
+                    <Image
+                      key={i}
+                      src={serverUrl + el.attributes.url}
+                      // layout="fill"
+                      width="50vw"
+                      height="30vh"
+                      alt="imgSlider"
+                      style={{ display: `flex`, margin: `auto` }}
+                      layout="responsive"
+                    />
+                  </div>
+                  <br />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </Suspense>
       </div>
-
-      <h1>
-        <Link href="/posts/first-post">
-          <a>this page!</a>
-        </Link>
-      </h1>
     </div>
   );
 }

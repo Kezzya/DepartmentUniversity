@@ -1,0 +1,20 @@
+.animatedText {
+  transform: translateY(0px);
+  opacity: 1;
+  animation-duration: 1s;
+  animation-name: animatedText;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+@keyframes animatedText {
+  0% {
+    transform: translateY(100%);
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
