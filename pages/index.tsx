@@ -11,23 +11,16 @@ import Image from "next/image";
 import { AppearanceWords } from "../components/appearanceWords";
 import { Tab, Tabs } from "@mui/material";
 import { Footer } from "../components/footer";
+import MagistracyTable from "../components/studyAreas/magistracy";
+import PhdTable from "../components/studyAreas/phd";
+import BachelorTable from "../components/studyAreas/bachelor";
 
 const serverUrl: string = "http://localhost:1337";
-
-interface IAttribute {
-  attributes: IImages;
-}
-interface IImages {
-  images: IData;
-}
-interface IData {
-  data: object[];
-}
 
 export default function Home(): JSX.Element {
   // const [loading, setLoading] = useState(true);
   const [value, setValue] = useState("one");
-
+  const [studyAreas, setStudyAreas] = useState(1);
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
@@ -93,22 +86,65 @@ export default function Home(): JSX.Element {
               indicatorColor="secondary"
               aria-label="secondary tabs example"
             >
-              <Tab value="one" label="Бакалавриат" style={{ margin: `auto` }} />
+              <Tab
+                value="one"
+                label="Бакалавриат"
+                style={{ margin: `auto` }}
+                onClick={() => setStudyAreas(1)}
+              />
               <Tab
                 value="two"
                 label="Магистратура"
                 style={{ margin: `auto` }}
+                onClick={() => setStudyAreas(2)}
               />
               <Tab
                 value="three"
                 label="Аспирантура"
                 style={{ margin: `auto` }}
+                onClick={() => setStudyAreas(3)}
               />
             </Tabs>
           </div>
         </div>
       </div>
+      <div
+        style={{
+          display: `flex`,
+          backgroundImage: `url(/images/bgDefault.svg)`,
+          gap: `6vw`,
+          paddingBottom: `10px`,
+        }}
+      >
+        <div>{""}</div>
+        {setStudyTable(studyAreas)}
+        <div>{""}</div>
+      </div>
+
       <Footer />
     </div>
   );
 }
+
+interface IAttribute {
+  attributes: IImages;
+}
+interface IImages {
+  images: IData;
+}
+interface IData {
+  data: object[];
+}
+
+const setStudyTable = (number: number): JSX.Element => {
+  switch (number) {
+    case 1:
+      return <BachelorTable />;
+    case 2:
+      return <MagistracyTable />;
+    case 3:
+      return <PhdTable />;
+    default:
+      return <BachelorTable />;
+  }
+};
