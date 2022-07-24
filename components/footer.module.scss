@@ -1,0 +1,15 @@
+.footerWrap {
+  background-image: url(/images/bgDefault.svg);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vw;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+  padding-left: 10%;
+  padding-right: 10%;
+  & p:hover {
+    color: #ffd959;
+    cursor: pointer;
+  }
+}

@@ -9,11 +9,11 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import Image from "next/image";
 import { AppearanceWords } from "../components/appearanceWords";
+import { Tab, Tabs } from "@mui/material";
+import { Footer } from "../components/footer";
 
 const serverUrl: string = "http://localhost:1337";
-interface ISlider {
-  data: IAttribute;
-}
+
 interface IAttribute {
   attributes: IImages;
 }
@@ -26,6 +26,11 @@ interface IData {
 
 export default function Home(): JSX.Element {
   // const [loading, setLoading] = useState(true);
+  const [value, setValue] = useState("one");
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
   const [imgs, setImgs] = useState([]);
   const getImgs = async () => {
     try {
@@ -78,7 +83,32 @@ export default function Home(): JSX.Element {
             })}
           </Swiper>
         </Suspense>
+        <div className="bgDefault">
+          <AppearanceWords text="Направления" />
+          <div>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              textColor="text"
+              indicatorColor="secondary"
+              aria-label="secondary tabs example"
+            >
+              <Tab value="one" label="Бакалавриат" style={{ margin: `auto` }} />
+              <Tab
+                value="two"
+                label="Магистратура"
+                style={{ margin: `auto` }}
+              />
+              <Tab
+                value="three"
+                label="Аспирантура"
+                style={{ margin: `auto` }}
+              />
+            </Tabs>
+          </div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -13,7 +13,7 @@ export const MainHeader = (): JSX.Element => {
       <header
         style={{
           borderBottom: `1px solid #fff`,
-          backgroundImage: `url(images/bgHeader.svg)`,
+          backgroundImage: `url(images/bgDefault.svg)`,
           fontSize: `0.9em`,
           paddingLeft: `10%`,
           paddingRight: `10%`,
@@ -35,13 +35,20 @@ export const MainHeader = (): JSX.Element => {
         style={{
           display: `flex`,
           flexDirection: `row`,
-          backgroundImage: `url(images/bgHeader.svg)`,
+          backgroundImage: `url(images/bgDefault.svg)`,
           borderBottom: `1px solid #fff`,
           paddingLeft: `10%`,
           paddingRight: `10%`,
         }}
       >
-        <Image src="/images/logo.svg" alt="logo" width="150px" height="100px" />
+        <a target="_blank" href="https://swsu.ru" rel="noopener noreferrer">
+          <Image
+            src="/images/logo.svg"
+            alt="logo"
+            width="150px"
+            height="100px"
+          />
+        </a>
         <div className={styles.headerText}>
           <p>Бакалавриат</p>
           <p>Магистратура</p>
