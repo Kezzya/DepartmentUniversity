@@ -14,6 +14,7 @@ import { Footer } from "../components/footer";
 import MagistracyTable from "../components/studyAreas/magistracy";
 import PhdTable from "../components/studyAreas/phd";
 import BachelorTable from "../components/studyAreas/bachelor";
+import { AdvangatesSwsu } from "../components/advantagesSwsu";
 
 const serverUrl: string = "http://localhost:1337";
 
@@ -40,7 +41,7 @@ export default function Home(): JSX.Element {
       return "Error - " + err;
     }
   };
-  useLayoutEffect(() => {
+  useEffect(() => {
     getImgs();
   }, []);
   return (
@@ -48,6 +49,11 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Кафедра ВТ</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="viewport-fit=cover" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+        />
       </Head>
 
       <MainHeader />
@@ -58,16 +64,17 @@ export default function Home(): JSX.Element {
               return (
                 <SwiperSlide key={i}>
                   <AppearanceWords text="Кафедра Вычислительной Техники" />
-                  <div style={{ margin: `auto`, width: `50vw` }}>
+                  <div
+                    style={{ margin: `auto`, width: `50vw`, height: `30vw` }}
+                  >
                     <Image
                       key={i}
                       src={serverUrl + el.attributes.url}
-                      // layout="fill"
                       width="50vw"
+                      layout="responsive"
                       height="30vh"
                       alt="imgSlider"
                       style={{ display: `flex`, margin: `auto` }}
-                      layout="responsive"
                     />
                   </div>
                   <br />
@@ -78,6 +85,7 @@ export default function Home(): JSX.Element {
         </Suspense>
         <div className="bgDefault">
           <AppearanceWords text="Направления" />
+
           <div>
             <Tabs
               value={value}
@@ -85,6 +93,9 @@ export default function Home(): JSX.Element {
               textColor="text"
               indicatorColor="secondary"
               aria-label="secondary tabs example"
+              style={{
+                backgroundImage: `url(/images/bgDefault.svg)`,
+              }}
             >
               <Tab
                 value="one"
@@ -120,7 +131,16 @@ export default function Home(): JSX.Element {
         {setStudyTable(studyAreas)}
         <div>{""}</div>
       </div>
-
+      <div
+        style={{
+          backgroundImage: `url(/images/bgDefault.svg)`,
+          textAlign: `center`,
+          paddingBottom: `10px`,
+        }}
+      >
+        <AppearanceWords text="Студент кафедры ВТ получает" />
+        <AdvangatesSwsu />
+      </div>
       <Footer />
     </div>
   );

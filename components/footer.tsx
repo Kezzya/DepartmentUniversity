@@ -9,7 +9,7 @@ export const Footer = (): JSX.Element => {
     tg = document.querySelector("#tg")!;
   });
   return (
-    <div className={styles.footerWrap}>
+    <footer className={styles.footerWrap}>
       <a target="_blank" href="https://swsu.ru" rel="noopener noreferrer">
         <Image src="/images/logo.svg" alt="logo" width="150px" height="100px" />
       </a>
@@ -53,7 +53,7 @@ export const Footer = (): JSX.Element => {
       >
         ул. Челюскинцев, д.19, Курск, Курская обл., 305041 (Нижний корпус ЮЗГУ)
       </a>
-    </div>
+    </footer>
   );
 };
 

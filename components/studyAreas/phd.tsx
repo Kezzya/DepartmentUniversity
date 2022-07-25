@@ -11,7 +11,8 @@ import { StringMap } from "react-admin";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundImage: `url(/images/bgDefault.svg)`,
+    border: `1px solid black`,
     color: theme.palette.common.white,
     textAlign: `center`,
   },

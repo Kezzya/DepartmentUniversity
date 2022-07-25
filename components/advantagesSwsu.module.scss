@@ -1,0 +1,30 @@
+.divWrap {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  text-align: center;
+  margin: auto;
+  gap: 1vw;
+  flex-wrap: wrap;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.divWrap > * {
+  flex: 1 1 10vw;
+}
+.imgs {
+  animation: animateImgs 3s infinite;
+}
+@keyframes animateImgs {
+  0% {
+    transform: skewY(5deg);
+  }
+  50% {
+    transform: skewY(-5deg);
+  }
+  100% {
+    transform: skewY(5deg);
+  }
+}

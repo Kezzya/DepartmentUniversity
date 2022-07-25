@@ -11,7 +11,8 @@ import { StringMap } from "react-admin";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundImage: `url(/images/bgDefault.svg)`,
+    border: `1px solid black`,
     color: theme.palette.common.white,
     textAlign: `center`,
   },
@@ -46,21 +47,21 @@ const rows = [
     1,
     "09.04.01",
     `Информатика и вычислительная техника. Направленность "Элементы и устройства вычислительной техники и информационных систем"`,
-    "магистратура",
+    "магистр",
     "очная"
   ),
   createData(
     2,
     "09.04.01",
     ` Информатика и вычислительная техника, программа "Киберфизические системы и искусственный интеллект", направленность (профиль) "Облачная и сетевая инфраструктура систем искусственного интеллекта"	`,
-    "магистратура",
+    "магистра",
     "очная с 2022 года"
   ),
   createData(
     3,
     "09.04.02",
     `Информационные системы и технологии, направленность (профиль) "Информационные технологии в науке и производстве"`,
-    "магистратура",
+    "магистр",
     "очная"
   ),
 ];
@@ -72,8 +73,10 @@ export default function MagistracyTable() {
         <TableHead>
           <TableRow>
             <StyledTableCell align="right">№</StyledTableCell>
-            <StyledTableCell>Шифр специальности</StyledTableCell>
-            <StyledTableCell align="right">Наименование</StyledTableCell>
+            <StyledTableCell>Шифр </StyledTableCell>
+            <StyledTableCell align="right">
+              Наименование специальности
+            </StyledTableCell>
             <StyledTableCell align="right">
               Квалификация (степень) выпускника
             </StyledTableCell>

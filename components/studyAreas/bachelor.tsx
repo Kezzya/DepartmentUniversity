@@ -8,10 +8,12 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { StringMap } from "react-admin";
+import { yellow } from "@mui/material/colors";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundImage: `url(/images/bgDefault.svg)`,
+    border: `1px solid black`,
     color: theme.palette.common.white,
     textAlign: `center`,
   },
@@ -80,7 +82,9 @@ export default function BachelorTable() {
           <TableRow>
             <StyledTableCell align="right">№</StyledTableCell>
             <StyledTableCell>Шифр специальности</StyledTableCell>
-            <StyledTableCell align="right">Наименование</StyledTableCell>
+            <StyledTableCell align="right">
+              Наименование специальности
+            </StyledTableCell>
             <StyledTableCell align="right">
               Квалификация (степень) выпускника
             </StyledTableCell>
