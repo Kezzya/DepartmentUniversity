@@ -1,8 +1,11 @@
 import Image from "next/image";
 import React, { useEffect } from "react";
 import styles from "./footer.module.scss";
-let vk: HTMLElement;
-let tg: HTMLElement;
+let vk: Element | IImages;
+let tg: Element | IImages;
+interface IImages {
+  srcset: string;
+}
 export const Footer = (): JSX.Element => {
   useEffect(() => {
     vk = document.querySelector("#vk")!;
