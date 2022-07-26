@@ -2,7 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 import { Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { Loader } from "../components/loader";
-import { MainHeader } from "../components/mainHeader";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,13 +9,12 @@ import { Navigation } from "swiper";
 import Image from "next/image";
 import { AppearanceWords } from "../components/appearanceWords";
 import { Tab, Tabs } from "@mui/material";
-import { Footer } from "../components/footer";
 import MagistracyTable from "../components/studyAreas/magistracy";
 import PhdTable from "../components/studyAreas/phd";
 import BachelorTable from "../components/studyAreas/bachelor";
 import { AdvangatesSwsu } from "../components/advantagesSwsu";
 
-const serverUrl: string = "http://localhost:1337";
+const serverUrl: string = "https://swsu.herokuapp.com";
 
 export default function Home(): JSX.Element {
   // const [loading, setLoading] = useState(true);
@@ -26,6 +24,8 @@ export default function Home(): JSX.Element {
     setValue(newValue);
   };
   const [imgs, setImgs] = useState([]);
+
+  // get images from Strapi Headless CMS
   const getImgs = async () => {
     try {
       const sliderResp: Response = await fetch(
@@ -41,6 +41,7 @@ export default function Home(): JSX.Element {
       return "Error - " + err;
     }
   };
+
   useEffect(() => {
     getImgs();
   }, []);
@@ -49,14 +50,8 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Кафедра ВТ</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="viewport-fit=cover" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
-        />
       </Head>
 
-      <MainHeader />
       <div>
         <Suspense fallback={<Loader />}>
           <Swiper navigation={true} modules={[Navigation]}>
@@ -141,7 +136,6 @@ export default function Home(): JSX.Element {
         <AppearanceWords text="Студент кафедры ВТ получает" />
         <AdvangatesSwsu />
       </div>
-      <Footer />
     </div>
   );
 }
