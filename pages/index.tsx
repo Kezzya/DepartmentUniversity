@@ -55,7 +55,7 @@ export default function Home(): JSX.Element {
       <div>
         <Suspense fallback={<Loader />}>
           <Swiper navigation={true} modules={[Navigation]}>
-            {imgs.map((el, i) => {
+            {imgs.map((el: IElement, i) => {
               return (
                 <SwiperSlide key={i}>
                   <AppearanceWords text="Кафедра Вычислительной Техники" />
@@ -85,7 +85,6 @@ export default function Home(): JSX.Element {
             <Tabs
               value={value}
               onChange={handleChange}
-              textColor="text"
               indicatorColor="secondary"
               aria-label="secondary tabs example"
               style={{
@@ -149,7 +148,12 @@ interface IImages {
 interface IData {
   data: object[];
 }
-
+interface IElement {
+  attributes: IURL;
+}
+interface IURL {
+  url: string;
+}
 const setStudyTable = (number: number): JSX.Element => {
   switch (number) {
     case 1:
