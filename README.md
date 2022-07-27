@@ -6,4 +6,4 @@ Back-end: https://swsu.herokuapp.com/
 
 - SSR/SSG/CSR Differences;
 - Next.JS features (optimization, SEO);
-- TypeScript knowledge;
+- TypeScript knowledge.

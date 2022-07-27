@@ -85,7 +85,8 @@ export default function Home(): JSX.Element {
             <Tabs
               value={value}
               onChange={handleChange}
-              indicatorColor="secondary"
+              indicatorColor="primary"
+              textColor="inherit"
               aria-label="secondary tabs example"
               style={{
                 backgroundImage: `url(/images/bgDefault.svg)`,
