@@ -91,7 +91,7 @@ export default function BachelorTable() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.code}>
+            <StyledTableRow key={row.number}>
               <StyledTableCell align="right">{row.number}</StyledTableCell>
               <StyledTableCell component="th" scope="row">
                 {row.code}
