@@ -65,7 +65,7 @@ export const MainHeader = (): JSX.Element => {
             <Link href={`/#Магистратура`}>Магистратура </Link>
           </p>
           <p>
-            <Link href={`/Аспирантура`}> Аспирантура</Link>
+            <Link href={`/#Аспирантура`}> Аспирантура</Link>
           </p>
           <p>Кадровый состав</p>
         </div>
