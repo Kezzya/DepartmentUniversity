@@ -1,0 +1,32 @@
+.blur {
+  z-index: 100;
+}
+.burger {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1vw;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  position: absolute;
+  width: 40vw;
+  height: 30vw;
+  word-break: break-all;
+  right: 15vw;
+  text-align: center;
+  border-radius: 15px;
+  animation: identifier 0.3s;
+  border: 1px solid #1f5ba3;
+  overflow: hidden;
+}
+.burger > div:hover {
+  color: #1f5ba3;
+  cursor: pointer;
+}
+@keyframes identifier {
+  0% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}

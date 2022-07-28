@@ -1,13 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { HamburgerSqueeze } from "react-animated-burgers";
 import styles from "./mainHeader.module.scss";
+import { BurgerWindow } from "./burgerWindow";
 export const MainHeader = (): JSX.Element => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
   const toggleButton = (): void => {
     setIsActive(!isActive);
   };
+  const handleCloseModal = (): void => {
+    setIsActive(false);
+  };
+
   return (
     <div>
       <header
@@ -50,9 +55,15 @@ export const MainHeader = (): JSX.Element => {
           />
         </a>
         <div className={styles.headerText}>
-          <p>Бакалавриат</p>
-          <p>Магистратура</p>
-          <p>Аспирантура</p>
+          <p>
+            <a href="#Бакалавриат"> Бакалавриат</a>
+          </p>
+          <p>
+            <a href="#Магистратура">Магистратура </a>
+          </p>
+          <p>
+            <a href="#Магистратура"> Аспирантура</a>
+          </p>
           <p>Кадровый состав</p>
         </div>
         <HamburgerSqueeze
@@ -62,6 +73,8 @@ export const MainHeader = (): JSX.Element => {
           className={styles.hamburgerInner}
         />
       </div>
+      {}
+      <div>{isActive === true ? <BurgerWindow /> : <></>}</div>
     </div>
   );
 };

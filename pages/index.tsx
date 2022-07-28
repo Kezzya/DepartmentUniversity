@@ -20,7 +20,10 @@ export default function Home(): JSX.Element {
   // const [loading, setLoading] = useState(true);
   const [value, setValue] = useState("one");
   const [studyAreas, setStudyAreas] = useState(1);
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (
+    event: SyntheticEvent<Element, Event>,
+    newValue: string
+  ) => {
     setValue(newValue);
   };
   const [imgs, setImgs] = useState([]);
@@ -97,18 +100,22 @@ export default function Home(): JSX.Element {
                 label="Бакалавриат"
                 style={{ margin: `auto` }}
                 onClick={() => setStudyAreas(1)}
+                id="Бакалавриат"
               />
+
               <Tab
                 value="two"
                 label="Магистратура"
                 style={{ margin: `auto` }}
                 onClick={() => setStudyAreas(2)}
+                id="Магистратура"
               />
               <Tab
                 value="three"
                 label="Аспирантура"
                 style={{ margin: `auto` }}
                 onClick={() => setStudyAreas(3)}
+                id="Аспирантура"
               />
             </Tabs>
           </div>

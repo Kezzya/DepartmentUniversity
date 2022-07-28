@@ -5,7 +5,6 @@ import styles from "./advantagesSwsu.module.scss";
 export const AdvangatesSwsu = (): JSX.Element => {
   return (
     <div className={styles.divWrap}>
-      <div></div>
       {srcImgs.map((el, i) => {
         return (
           <div key={i}>
@@ -21,7 +20,6 @@ export const AdvangatesSwsu = (): JSX.Element => {
           </div>
         );
       })}
-      <div></div>
     </div>
   );
 };
