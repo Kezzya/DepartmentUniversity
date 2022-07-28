@@ -20,14 +20,13 @@ export default function Home(): JSX.Element {
   // const [loading, setLoading] = useState(true);
   const [value, setValue] = useState("one");
   const [studyAreas, setStudyAreas] = useState(1);
-  const handleChange = (
-    event: SyntheticEvent<Element, Event>,
-    newValue: string
-  ) => {
+  const handleChange = (event: SyntheticEvent<Element>, newValue: string) => {
     setValue(newValue);
   };
   const [imgs, setImgs] = useState([]);
-
+  interface SyntheticEvent<T> {
+    currentTarget: EventTarget & T;
+  }
   // get images from Strapi Headless CMS
   const getImgs = async () => {
     try {
