@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { HamburgerSqueeze } from "react-animated-burgers";
 import styles from "./mainHeader.module.scss";
 import { BurgerWindow } from "./burgerWindow";
+
 export const MainHeader = (): JSX.Element => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const toggleButton = (): void => {
@@ -12,7 +13,6 @@ export const MainHeader = (): JSX.Element => {
   const handleCloseModal = (): void => {
     setIsActive(false);
   };
-
   return (
     <div>
       <header
@@ -56,13 +56,16 @@ export const MainHeader = (): JSX.Element => {
         </a>
         <div className={styles.headerText}>
           <p>
-            <a href="#Бакалавриат"> Бакалавриат</a>
+            <Link href={`/`}> Главная</Link>
           </p>
           <p>
-            <a href="#Магистратура">Магистратура </a>
+            <Link href={`/#Бакалавриат`}> Бакалавриат</Link>
           </p>
           <p>
-            <a href="#Магистратура"> Аспирантура</a>
+            <Link href={`/#Магистратура`}>Магистратура </Link>
+          </p>
+          <p>
+            <Link href={`/Аспирантура`}> Аспирантура</Link>
           </p>
           <p>Кадровый состав</p>
         </div>
