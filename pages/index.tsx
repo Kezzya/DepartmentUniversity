@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Script from "next/script";
 import { Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { Loader } from "../components/loader";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,13 +14,15 @@ import MagistracyTable from "../components/studyAreas/magistracy";
 import PhdTable from "../components/studyAreas/phd";
 import BachelorTable from "../components/studyAreas/bachelor";
 import { AdvangatesSwsu } from "../components/advantagesSwsu";
-
+import { Map, Placemark, YMaps } from "react-yandex-maps";
+import ReactPlayer from "react-player";
 const serverUrl: string = "https://swsu.herokuapp.com";
 
 export default function Home(): JSX.Element {
   // const [loading, setLoading] = useState(true);
   const [value, setValue] = useState("one");
   const [studyAreas, setStudyAreas] = useState(1);
+  const [pageLoaded, setPageLoaded] = useState(false);
   const handleChange = (event: SyntheticEvent<Element>, newValue: string) => {
     setValue(newValue);
   };
@@ -45,6 +48,7 @@ export default function Home(): JSX.Element {
   };
 
   useEffect(() => {
+    setPageLoaded(true);
     getImgs();
   }, []);
   return (
@@ -141,6 +145,52 @@ export default function Home(): JSX.Element {
       >
         <AppearanceWords text="Студент кафедры ВТ получает" />
         <AdvangatesSwsu />
+      </div>
+      <div
+        style={{
+          backgroundImage: `url(/images/bgDefault.svg)`,
+          textAlign: `center`,
+          paddingBottom: `10px`,
+          paddingTop: `10px`,
+        }}
+      >
+        <AppearanceWords text="Местонахождение кафедры" />
+        <div style={{ display: `flex`, marginTop: `30px` }}>
+          <YMaps>
+            <div style={{ margin: `auto` }}>
+              <Map
+                defaultState={{
+                  center: [51.745147, 36.199474],
+                  zoom: 13,
+                  controls: ["zoomControl", "fullscreenControl"],
+                }}
+                modules={["control.ZoomControl", "control.FullscreenControl"]}
+              >
+                <Placemark defaultGeometry={[51.745147, 36.199474]} />
+              </Map>
+            </div>
+          </YMaps>
+        </div>
+      </div>
+      <div
+        style={{
+          display: `flex`,
+          backgroundImage: `url(/images/bgDefault.svg)`,
+        }}
+      >
+        <div
+          style={{ margin: `auto`, textAlign: `center`, marginBottom: `30px` }}
+        >
+          <AppearanceWords text="ОБ УНИВЕРСИТЕТЕ" />
+          {
+            // We have to add player after mount/useEffect, other way you get error
+            pageLoaded ? (
+              <ReactPlayer url="https://www.youtube.com/watch?v=9W0xG8SpMCk" />
+            ) : (
+              0
+            )
+          }
+        </div>
       </div>
     </div>
   );

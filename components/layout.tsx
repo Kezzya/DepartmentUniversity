@@ -1,3 +1,4 @@
+import { BackToTopButton } from "./backToTopButton";
 import { Footer } from "./footer";
 import { MainHeader } from "./mainHeader";
 interface Props {
@@ -8,6 +9,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <MainHeader />
+      <BackToTopButton />
       {children}
       <Footer />
     </>
