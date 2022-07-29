@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { HamburgerSqueeze } from "react-animated-burgers";
 import styles from "./mainHeader.module.scss";
-import { BurgerWindow } from "./burgerWindow";
+import { BurgerWindow } from "../burgerWindow/burgerWindow";
 
 export const MainHeader = (): JSX.Element => {
   const [isActive, setIsActive] = useState<boolean>(false);

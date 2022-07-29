@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { AppearanceWords } from "../components/appearanceWords";
-import { StaffCard } from "../components/staffCard";
+import { AppearanceWords } from "../components/appearanceWords/appearanceWords";
+import { StaffCard } from "../components/staffCard/staffCard";
 import styles from "../components/staffCard.module.scss";
 const Staff = () => {
   useEffect(() => {
