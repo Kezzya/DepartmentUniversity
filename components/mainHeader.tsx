@@ -67,7 +67,9 @@ export const MainHeader = (): JSX.Element => {
           <p>
             <Link href={`/#Аспирантура`}> Аспирантура</Link>
           </p>
-          <p>Кадровый состав</p>
+          <p>
+            <Link href={`/staff`}> Кадровый состав</Link>
+          </p>
         </div>
         <HamburgerSqueeze
           isActive={isActive}

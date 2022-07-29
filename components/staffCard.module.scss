@@ -1,4 +1,7 @@
 .staffWrap {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, 400px);
+  text-align: center;
+  background-image: url(/images/bgDefault.svg);
+  align-items: center;
 }
