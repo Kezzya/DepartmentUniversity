@@ -87,12 +87,11 @@ export default function Home({
                   >
                     <Image
                       key={i}
-                      src={serverUrl + el.attributes.url}
-                      width="500px"
-                      layout="responsive"
-                      height="300px"
+                      src={el.attributes.name}
+                      width="40px"
+                      height="30px"
                       alt="imgSlider"
-                      style={{ display: `flex`, margin: `auto` }}
+                      layout="responsive"
                     />
                   </div>
                   <br />
@@ -226,7 +225,7 @@ interface IElement {
   attributes: IURL;
 }
 interface IURL {
-  url: string;
+  name: string;
 }
 const setStudyTable = (number: number): JSX.Element => {
   switch (number) {
