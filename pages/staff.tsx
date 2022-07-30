@@ -1,23 +1,38 @@
 import axios from "axios";
+import { GetStaticProps } from "next";
+import { InferGetStaticPropsType } from "next";
 import React, { useEffect, useState } from "react";
 import { AppearanceWords } from "../components/appearanceWords/appearanceWords";
 import { StaffCard } from "../components/staffCard/staffCard";
 import styles from "../components/staffCard/staffCard.module.scss";
+export async function getStaticProps() {
+  const res: Response = await fetch(
+    "https://swsu.herokuapp.com/api/staffs?populate=imageStaff"
+  );
+  const resJson = await res.json();
+  const staff = resJson.data;
 
-const Staff = () => {
-  useEffect(() => {
-    axios
-      .get("https://swsu.herokuapp.com/api/staffs?populate=imageStaff")
-      .then((response) => setStaffList(response.data.data));
-  }, []);
+  return {
+    props: {
+      staff,
+    },
+  };
+}
+const Staff = ({ staff }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // if not SSG
+  // useEffect(() => {
+  //   axios
+  //     .get("https://swsu.herokuapp.com/api/staffs?populate=imageStaff")
+  //     .then((response) => setStaffList(response.data.data));
+  // }, []);
 
-  const [staffList, setStaffList] = useState([]);
+  // const [staffList, setStaffList] = useState([]);
   return (
     <div>
       <AppearanceWords text="Кадровый состав кафедры ВТ" />
       <br />
       <div className={styles.staffWrap}>
-        {staffList.map((el: IStaff, i: number) => {
+        {staff.map((el: IStaff, i: number) => {
           let academicDegree = el.attributes.academicDegree;
           let academicTitle = el.attributes.academicTitle;
           let name = el.attributes.name;

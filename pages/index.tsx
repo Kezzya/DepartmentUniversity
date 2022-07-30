@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
-import Script from "next/script";
+import { GetStaticProps } from "next";
+import { InferGetStaticPropsType } from "next";
 import { Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { Loader } from "../components/loader/loader";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,7 +18,24 @@ import { Map, Placemark, YMaps } from "react-yandex-maps";
 import ReactPlayer from "react-player";
 const serverUrl: string = "https://swsu.herokuapp.com";
 
-export default function Home(): JSX.Element {
+export async function getStaticProps() {
+  const sliderResp: Response = await fetch(
+    `${serverUrl}/api/sliders?populate=images`
+  );
+  const jsonSlider = await sliderResp.json();
+  const [images] = jsonSlider.data.map(
+    (el: IAttribute) => el.attributes.images.data
+  );
+
+  return {
+    props: {
+      images,
+    },
+  };
+}
+export default function Home({
+  images,
+}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   // const [loading, setLoading] = useState(true);
   const [value, setValue] = useState("one");
   const [studyAreas, setStudyAreas] = useState(1);
@@ -31,25 +48,25 @@ export default function Home(): JSX.Element {
     currentTarget: EventTarget & T;
   }
   // get images from Strapi Headless CMS
-  const getImgs = async () => {
-    try {
-      const sliderResp: Response = await fetch(
-        `${serverUrl}/api/sliders?populate=images`
-      );
+  // const getImgs = async () => {
+  //   try {
+  //     const sliderResp: Response = await fetch(
+  //       `${serverUrl}/api/sliders?populate=images`
+  //     );
 
-      const jsonSlider = await sliderResp.json();
-      const [images] = jsonSlider.data.map(
-        (el: IAttribute) => el.attributes.images.data
-      );
-      setImgs(images);
-    } catch (err) {
-      return "Error - " + err;
-    }
-  };
+  //     const jsonSlider = await sliderResp.json();
+  //     const [images] = jsonSlider.data.map(
+  //       (el: IAttribute) => el.attributes.images.data
+  //     );
+  //     setImgs(images);
+  //   } catch (err) {
+  //     return "Error - " + err;
+  //   }
+  // };
 
   useEffect(() => {
     setPageLoaded(true);
-    getImgs();
+    // getImgs();
   }, []);
   return (
     <div className="container">
@@ -61,7 +78,7 @@ export default function Home(): JSX.Element {
       <div>
         <Suspense fallback={<Loader />}>
           <Swiper navigation={true} modules={[Navigation]}>
-            {imgs.map((el: IElement, i) => {
+            {images.map((el: IElement, i: number) => {
               return (
                 <SwiperSlide key={i}>
                   <AppearanceWords text="Кафедра Вычислительной Техники" />
