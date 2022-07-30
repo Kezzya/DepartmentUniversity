@@ -88,9 +88,9 @@ export default function Home({
                     <Image
                       key={i}
                       src={serverUrl + el.attributes.url}
-                      width="50vw"
+                      width="500px"
                       layout="responsive"
-                      height="30vh"
+                      height="300px"
                       alt="imgSlider"
                       style={{ display: `flex`, margin: `auto` }}
                     />
