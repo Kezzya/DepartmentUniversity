@@ -30,7 +30,13 @@ export const MainHeader = (): JSX.Element => {
         <a target="_blank" href="https://swsu.ru" rel="noopener noreferrer">
           <span>
             {" "}
-            SWSU <Image src="/images/link.svg" width={`10px`} height={`10px`} />
+            SWSU{" "}
+            <Image
+              src="/images/link.svg"
+              width={`10px`}
+              height={`10px`}
+              alt="imgLink"
+            />
           </span>
         </a>
         <a href="tel:+7 (471) 251-50-24">+7 (471) 251-50-24</a>
