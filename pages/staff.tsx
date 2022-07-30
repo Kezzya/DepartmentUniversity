@@ -2,14 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AppearanceWords } from "../components/appearanceWords/appearanceWords";
 import { StaffCard } from "../components/staffCard/staffCard";
-import styles from "../components/staffCard.module.scss";
+import styles from "../components/staffCard/staffCard.module.scss";
+
 const Staff = () => {
   useEffect(() => {
     axios
       .get("https://swsu.herokuapp.com/api/staffs?populate=imageStaff")
       .then((response) => setStaffList(response.data.data));
-    console.log(staffList);
-    console.log(staffList);
   }, []);
 
   const [staffList, setStaffList] = useState([]);
