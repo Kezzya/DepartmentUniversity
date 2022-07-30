@@ -102,7 +102,6 @@ export default function Home({
         </Suspense>
         <div className="bgDefault">
           <AppearanceWords text="Направления" />
-
           <div>
             <Tabs
               value={value}
