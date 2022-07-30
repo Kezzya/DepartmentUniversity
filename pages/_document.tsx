@@ -20,11 +20,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <style jsx global>{`
-            #__next {
-              height: 100%;
-            }
-          `}</style>
         </body>
       </Html>
     );
