@@ -85,7 +85,13 @@ export const MainHeader = (): JSX.Element => {
         />
       </div>
       {}
-      <div>{isActive === true ? <BurgerWindow /> : <></>}</div>
+      <div>
+        {isActive === true ? (
+          <BurgerWindow toggleButton={toggleButton} />
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };

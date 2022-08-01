@@ -1,7 +1,6 @@
-import axios from "axios";
-import { GetStaticProps } from "next";
 import { InferGetStaticPropsType } from "next";
-import React, { useEffect, useState } from "react";
+import Head from "next/head";
+import React from "react";
 import { AppearanceWords } from "../components/appearanceWords/appearanceWords";
 import { StaffCard } from "../components/staffCard/staffCard";
 import styles from "../components/staffCard/staffCard.module.scss";
@@ -29,6 +28,9 @@ const Staff = ({ staff }: InferGetStaticPropsType<typeof getStaticProps>) => {
   // const [staffList, setStaffList] = useState([]);
   return (
     <div>
+      <Head>
+        <title>Кадровый состав</title>
+      </Head>
       <AppearanceWords text="Кадровый состав кафедры ВТ" />
       <br />
       <div className={styles.staffWrap}>
