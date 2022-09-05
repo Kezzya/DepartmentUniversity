@@ -80,3 +80,11 @@ footer {
   width: 100%;
   position: absolute;
 }
+@media (max-width: 600px) {
+  body {
+    font-size: 0.7em;
+  }
+  .mobile-screen {
+    font-size: 0.7em;
+  }
+}

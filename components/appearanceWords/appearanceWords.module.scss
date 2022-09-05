@@ -11,6 +11,12 @@
   display: block;
   background-image: url(/images/bgDefault.svg);
 }
+@media (max-width: 600px) {
+  .animatedText {
+    font-size: 1em;
+  }
+}
+
 @keyframes animatedText {
   0% {
     transform: translateY(100%);

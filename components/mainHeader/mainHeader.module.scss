@@ -7,8 +7,13 @@
     color: #ffd959;
     cursor: pointer;
   }
+  text-decoration: none;
+}
+.headerText:nth-child(1n):hover {
+  color: rgba(255, 255, 255, 0.432);
 }
 .hamburgerInner:hover {
+  text-decoration: none;
   span,
   span::before,
   span::after {

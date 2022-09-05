@@ -68,7 +68,7 @@ const rows = [
 export default function MagistracyTable() {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table sx={{ minWidth: 500 }} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell align="right">№</StyledTableCell>
@@ -84,7 +84,7 @@ export default function MagistracyTable() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.code}>
+            <StyledTableRow key={row.number}>
               <StyledTableCell align="right">{row.number}</StyledTableCell>
               <StyledTableCell component="th" scope="row">
                 {row.code}

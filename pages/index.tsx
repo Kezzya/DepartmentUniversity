@@ -47,26 +47,9 @@ export default function Home({
   interface SyntheticEvent<T> {
     currentTarget: EventTarget & T;
   }
-  // get images from Strapi Headless CMS
-  // const getImgs = async () => {
-  //   try {
-  //     const sliderResp: Response = await fetch(
-  //       `${serverUrl}/api/sliders?populate=images`
-  //     );
-
-  //     const jsonSlider = await sliderResp.json();
-  //     const [images] = jsonSlider.data.map(
-  //       (el: IAttribute) => el.attributes.images.data
-  //     );
-  //     setImgs(images);
-  //   } catch (err) {
-  //     return "Error - " + err;
-  //   }
-  // };
 
   useEffect(() => {
     setPageLoaded(true);
-    // getImgs();
   }, []);
   return (
     <div className="container">
@@ -119,6 +102,7 @@ export default function Home({
                 style={{ margin: `auto` }}
                 onClick={() => setStudyAreas(1)}
                 id="Бакалавриат"
+                className="mobile-screen"
               />
 
               <Tab
@@ -127,6 +111,7 @@ export default function Home({
                 style={{ margin: `auto` }}
                 onClick={() => setStudyAreas(2)}
                 id="Магистратура"
+                className="mobile-screen"
               />
               <Tab
                 value="three"
@@ -134,6 +119,7 @@ export default function Home({
                 style={{ margin: `auto` }}
                 onClick={() => setStudyAreas(3)}
                 id="Аспирантура"
+                className="mobile-screen"
               />
             </Tabs>
           </div>
