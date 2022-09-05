@@ -39,8 +39,12 @@ export const MainHeader = (): JSX.Element => {
             />
           </span>
         </a>
-        <a href="tel:+7 (471) 251-50-24">+7 (471) 251-50-24</a>
-        <a href="mailto:rector@swsu.ru">rector@swsu.ru</a>
+        <a href="tel:+7 (471) 251-50-24">
+          <span>+7 (471) 251-50-24</span>
+        </a>
+        <a href="mailto:rector@swsu.ru">
+          <span>rector@swsu.ru</span>
+        </a>
       </header>
       <div
         style={{

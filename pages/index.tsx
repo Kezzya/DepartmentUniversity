@@ -75,6 +75,7 @@ export default function Home({
                       height="30px"
                       alt="imgSlider"
                       layout="responsive"
+                      priority={true}
                     />
                   </div>
                   <br />
