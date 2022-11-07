@@ -43,7 +43,6 @@ export default function Home({
   const handleChange = (event: SyntheticEvent<Element>, newValue: string) => {
     setValue(newValue);
   };
-  const [imgs, setImgs] = useState([]);
   interface SyntheticEvent<T> {
     currentTarget: EventTarget & T;
   }
@@ -57,7 +56,6 @@ export default function Home({
         <title>Кафедра ВТ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <div>
         <Suspense fallback={<Loader />}>
           <Swiper navigation={true} modules={[Navigation]}>
@@ -71,8 +69,8 @@ export default function Home({
                     <Image
                       key={i}
                       src={el.attributes.name}
-                      width="40px"
-                      height="30px"
+                      width="40"
+                      height="30"
                       alt="imgSlider"
                       layout="responsive"
                       priority={true}

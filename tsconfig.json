@@ -91,13 +91,17 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "noEmit": false,
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "watch": true
+    "watch": true,
+    "moduleResolution": "node"
   },
   "include": [
     "next-env.d.ts",
@@ -108,5 +112,7 @@
     "pages/index.tsx",
     "pages/_app.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

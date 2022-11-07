@@ -12,7 +12,7 @@ export const Footer = (): JSX.Element => {
   return (
     <footer className={styles.footerWrap}>
       <a target="_blank" href="https://swsu.ru" rel="noopener noreferrer">
-        <Image src="/images/logo.svg" alt="logo" width="150px" height="100px" />
+        <Image src="/images/logo.svg" alt="logo" width="150" height="100" />
       </a>
       <a
         target="_blank"
@@ -23,8 +23,8 @@ export const Footer = (): JSX.Element => {
         <Image
           src="/images/vk.svg"
           alt="logo"
-          width="45vw"
-          height="45vh"
+          width="45"
+          height="45"
           id="vk"
           onMouseEnter={setVkHover}
           onMouseLeave={rmVkHover}
@@ -39,8 +39,8 @@ export const Footer = (): JSX.Element => {
         <Image
           src="/images/tg.svg"
           alt="logo"
-          width="50vw"
-          height="50vh"
+          width="50"
+          height="50"
           id="tg"
           //   onMouseEnter={(tg.src = "/images/tgHover.svg")}
           onMouseEnter={setTgHover}

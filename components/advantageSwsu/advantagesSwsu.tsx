@@ -10,8 +10,8 @@ export const AdvangatesSwsu = (): JSX.Element => {
           <div key={i}>
             <Image
               src={el}
-              width="50px"
-              height="50px"
+              width="50"
+              height="50"
               alt="img"
               key={i}
               className={styles.imgs}

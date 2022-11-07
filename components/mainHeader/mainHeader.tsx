@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { HamburgerSqueeze } from "react-animated-burgers";
 import styles from "./mainHeader.module.scss";
 import { BurgerWindow } from "../burgerWindow/burgerWindow";
@@ -10,31 +10,17 @@ export const MainHeader = (): JSX.Element => {
   const toggleButton = (): void => {
     setIsActive(!isActive);
   };
-  const handleCloseModal = (): void => {
-    setIsActive(false);
-  };
   return (
-    <div>
-      <header
-        style={{
-          borderBottom: `1px solid #fff`,
-          backgroundImage: `url(images/bgDefault.svg)`,
-          fontSize: `0.9em`,
-          paddingLeft: `10%`,
-          paddingRight: `10%`,
-          gap: `2%`,
-          display: `flex`,
-          fontWeight: `400`,
-        }}
-      >
+    <>
+      <header className={styles.upHeader}>
         <a target="_blank" href="https://swsu.ru" rel="noopener noreferrer">
           <span>
             {" "}
             SWSU{" "}
             <Image
               src="/images/link.svg"
-              width={`10px`}
-              height={`10px`}
+              width="10"
+              height="10"
               alt="imgLink"
             />
           </span>
@@ -54,15 +40,17 @@ export const MainHeader = (): JSX.Element => {
           borderBottom: `1px solid #fff`,
           paddingLeft: `10%`,
           paddingRight: `10%`,
+          overflow: "auto",
+          width: "100%",
         }}
       >
-        <a target="_blank" href="https://swsu.ru" rel="noopener noreferrer">
-          <Image
-            src="/images/logo.svg"
-            alt="logo"
-            width="150px"
-            height="100px"
-          />
+        <a
+          target="_blank"
+          href="https://swsu.ru"
+          rel="noopener noreferrer"
+          className={styles.hidden}
+        >
+          <Image src="/images/logo.svg" alt="logo" width="150" height="100" />
         </a>
         <div className={styles.headerText}>
           <p>
@@ -98,7 +86,6 @@ export const MainHeader = (): JSX.Element => {
           className={styles.hamburgerInner}
         />
       </div>
-      {}
       <div>
         {isActive === true ? (
           <BurgerWindow toggleButton={toggleButton} />
@@ -106,6 +93,6 @@ export const MainHeader = (): JSX.Element => {
           <></>
         )}
       </div>
-    </div>
+    </>
   );
 };

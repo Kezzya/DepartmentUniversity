@@ -1,7 +1,27 @@
 .staffWrap {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 400px);
   text-align: center;
   background-image: url(/images/bgDefault.svg);
-  align-items: center;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+.staff {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style: none;
+}
+@media (max-width: 900px) and (min-width: 600px) {
+  .staff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+  }
+}
+@media (max-width: 600px) {
+  .staff {
+    display: grid;
+    grid-template-columns: 1fr;
+    list-style: none;
+  }
 }

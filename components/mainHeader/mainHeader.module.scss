@@ -20,3 +20,21 @@
     background-color: #ffd959;
   }
 }
+
+.upHeader {
+  border-bottom: 1px solid #fff;
+
+  margin: 0;
+  background-image: url(/images/bgDefault.svg);
+  font-size: 0.9em;
+  padding-left: 10%;
+  padding-right: 10%;
+  gap: 2%;
+  display: flex;
+  font-weight: 400;
+}
+@media (max-width: 1000px) {
+  .hidden {
+    display: none;
+  }
+}

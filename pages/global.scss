@@ -80,7 +80,14 @@ footer {
   width: 100%;
   position: absolute;
 }
-@media (max-width: 600px) {
+header {
+  width: 100%;
+}
+.hidden {
+  display: hidden;
+}
+
+@media (max-width: 1000px) {
   span {
     font-size: 0.7em;
   }

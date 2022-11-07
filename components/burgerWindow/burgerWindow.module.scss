@@ -30,3 +30,23 @@
     opacity: 1;
   }
 }
+@media (max-width: 1000px) {
+  .burger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1vw;
+    background-image: url(/images/bgDefault.svg);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    width: 70vw;
+    height: 70vw;
+    word-break: break-all;
+    right: 15vw;
+    text-align: center;
+    border-radius: 15px;
+    animation: identifier 0.3s;
+    border: 1px solid #ffffff;
+    overflow: hidden;
+    font-size: 0.7em;
+  }
+}

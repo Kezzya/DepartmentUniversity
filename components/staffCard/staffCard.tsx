@@ -11,8 +11,8 @@ export const StaffCard = ({
   imageStaff,
 }: ITeacherCard) => {
   return (
-    <div>
-      <Image src={imageStaff} alt="imgStaff" width="300px" height="330px" />
+    <>
+      <Image src={imageStaff} alt="imgStaff" width="300" height="330" />
       <div>{positionUniversity}</div>
       <div>{name}</div>
       <div>{academicDegree}</div>
@@ -29,12 +29,12 @@ export const StaffCard = ({
           <Image
             src={"https://i.imgur.com/qPtkbjA.png"}
             alt="imgScienceiNDEX"
-            width="130px"
-            height="40px"
+            width="130"
+            height="40"
           />
         </a>
       </div>
-    </div>
+    </>
   );
 };
 
