@@ -54,28 +54,28 @@ export const MainHeader = (): JSX.Element => {
         </a>
         <div className={styles.headerText}>
           <p>
-            <Link href={`/`}>
-              <span style={{ textDecoration: `none` }}> Главная</span>
+            <Link href={`/`} style={{ textDecoration: `none` }}>
+              Главная
             </Link>
           </p>
           <p>
-            <Link href={`/#Бакалавриат`}>
-              <span style={{ textDecoration: `none` }}> Бакалавриат </span>
+            <Link href={`/#Бакалавриат`} style={{ textDecoration: `none` }}>
+              Бакалавриат
             </Link>
           </p>
           <p>
-            <Link href={`/#Магистратура`}>
-              <span style={{ textDecoration: `none` }}> Магистратура </span>
+            <Link href={`/#Магистратура`} style={{ textDecoration: `none` }}>
+              Магистратура
             </Link>
           </p>
           <p>
-            <Link href={`/#Аспирантура`}>
-              <span style={{ textDecoration: `none` }}>Аспирантура</span>
+            <Link href={`/#Аспирантура`} style={{ textDecoration: `none` }}>
+              Аспирантура
             </Link>
           </p>
           <p>
-            <Link href={`/staff`}>
-              <span style={{ textDecoration: `none` }}>Кадровый состав</span>
+            <Link href={`/staff`} style={{ textDecoration: `none` }}>
+              Кадровый состав
             </Link>
           </p>
         </div>

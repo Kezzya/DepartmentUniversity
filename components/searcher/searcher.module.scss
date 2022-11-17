@@ -1,0 +1,12 @@
+.searcherInput {
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 5px;
+  border-radius: 6px;
+  border-color: black;
+  width: 30vw;
+  font-size: 1em;
+}
+.searcherInput:focus {
+  outline: none;
+}

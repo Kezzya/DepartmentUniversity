@@ -32,7 +32,10 @@ const Staff = ({ staff }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Head>
         <title>Кадровый состав</title>
       </Head>
-      <Searcher info={teacherInfo} setState={setSearchResult} />
+      <div>
+        <Searcher info={teacherInfo} setState={setSearchResult} />
+      </div>
+
       <AppearanceWords text="Кадровый состав кафедры ВТ" />
       <br />
       <div className={styles.staffWrap}>

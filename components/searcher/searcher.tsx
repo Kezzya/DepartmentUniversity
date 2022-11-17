@@ -1,6 +1,7 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
-import React, { FormEvent } from "react";
+import React from "react";
 import { ChangeEvent } from "react";
+import styles from "./searcher.module.scss";
 interface ISearcher {
   info: any;
   setState: React.Dispatch<React.SetStateAction<object[]>>;
@@ -21,19 +22,14 @@ export const Searcher = ({ info, setState }: ISearcher): ReactJSXElement => {
         );
       }
     );
-    console.log(resultsArray);
-
     setState(resultsArray);
   };
   return (
-    <header>
-      <input
-        className="search__input"
-        type="text"
-        id="search"
-        placeholder="Поиск"
-        onChange={handleSearchChange}
-      />
-    </header>
+    <input
+      className={styles.searcherInput}
+      type="text"
+      placeholder="Поиск"
+      onChange={handleSearchChange}
+    />
   );
 };
