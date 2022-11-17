@@ -1,8 +1,9 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { AppearanceWords } from "../components/appearanceWords/appearanceWords";
+import { Searcher } from "../components/searcher/searcher";
 import { StaffCard } from "../components/staffCard/staffCard";
 import styles from "../components/staffCard/staffCard.module.scss";
 export async function getStaticProps() {
@@ -19,17 +20,24 @@ export async function getStaticProps() {
   };
 }
 const Staff = ({ staff }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  let textForSearcher: string = "";
+  const [teacherInfo, setTeacherInfo] = useState<object[]>([]);
+  const [searchResult, setSearchResult] = useState<object[]>(staff);
+  useEffect(() => {
+    setTeacherInfo(staff);
+    setSearchResult(staff);
+  }, []);
+
   return (
     <div>
       <Head>
         <title>Кадровый состав</title>
       </Head>
+      <Searcher info={teacherInfo} setState={setSearchResult} />
       <AppearanceWords text="Кадровый состав кафедры ВТ" />
       <br />
       <div className={styles.staffWrap}>
         <ul className={styles.staff}>
-          {staff.map((el: IStaff, i: number) => {
+          {searchResult.map((el: any, i: number) => {
             const academicDegree = el.attributes.academicDegree;
             const academicTitle = el.attributes.academicTitle;
             const name = el.attributes.name;
@@ -37,9 +45,7 @@ const Staff = ({ staff }: InferGetStaticPropsType<typeof getStaticProps>) => {
             const positionUniversity = el.attributes.positionUniversity;
             const scienceIndex = el.attributes.scienceIndex;
             const imageStaff = el.attributes.imageStaff.data.attributes.name;
-            textForSearcher +=
-              academicDegree + academicTitle + name + positionUniversity;
-            console.log(textForSearcher);
+
             return (
               <li key={i}>
                 {" "}
